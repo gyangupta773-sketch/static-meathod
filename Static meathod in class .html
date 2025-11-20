@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>
+            Static Meathod
+        </h2>
+        <p>
+            A static meathod is created with the "static" keyword, and you can only call the meathod on he class itself.
+        </p>
+        <p id="Hello">
+        </p>
+        <p id="Hi"></p>
+        <p id="Welcome">
+        </p>
+        <script>
+          class Student{
+            constructor(name) {
+                this.studentname = name;
+            }
+            static hello() { // static meathod
+                return "Hello!";
+            }
+            static welcome(x) { 
+                  return "Welcome" + x.studentname;
+              }
+             hi() {
+                    return "Hi" + this.studentname;
+                }
+          }
+          myname = new Student ("Carol");
+          //Call 'Hello()' on the class Student and Not on the 'myname' object became 'hello()' is a static meathod it cannot access object
+           document.getElementById("hello").inneHTML = Student.hello(); 
+            //Call 'hi()' on the 'myname' object; 
+           document.getElementById("hi").inneHTML =myname.hi(); 
+            //Call 'welcome()' can access the object since parameter is passed 
+           document.getElementById("welcome").inneHTML = Student.welcome(myname); 
+        </script>
+    </body>
+</html>
